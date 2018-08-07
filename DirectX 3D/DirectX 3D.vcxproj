@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A8B2E892-DD5D-4941-B19F-02BF6C6A0C63}</ProjectGuid>
+    <ProjectGuid>{70EED799-8A16-4AA7-A1C8-50B350F504FB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DirectX3DProgramming</RootNamespace>
+    <RootNamespace>DirectX3D</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -147,19 +147,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DirectX 3D Programming.h" />
+    <ClInclude Include="DirectX 3D.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DirectX 3D Programming.cpp" />
+    <ClCompile Include="DirectX 3D.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DirectX 3D Programming.rc" />
+    <ResourceCompile Include="DirectX 3D.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="DirectX 3D Programming.ico" />
+    <Image Include="DirectX 3D.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
