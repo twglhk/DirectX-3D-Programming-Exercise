@@ -1,0 +1,13 @@
+limited time = 50000
+goal count = 10
+item time = 3000
+pattern count = 4
+pattern file name = pat4.pat
+pattern file name = pat3.pat
+pattern file name = pat2.pat
+pattern file name = pat1.pat
+enemy count = 4
+enemy index = 3 pattern index = 0
+enemy index = 2 pattern index = 1
+enemy index = 1 pattern index = 2
+enemy index = 0 pattern index = 3
