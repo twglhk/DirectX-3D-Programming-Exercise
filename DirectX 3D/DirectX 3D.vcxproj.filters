@@ -27,12 +27,24 @@
     <ClInclude Include="DirectX 3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CD3DApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameEdu01.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DirectX 3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CD3DApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameEdu01.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -150,12 +150,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CD3DApp.h" />
+    <ClInclude Include="CGameEdu01.h" />
     <ClInclude Include="DirectX 3D.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CD3DApp.cpp" />
+    <ClCompile Include="CGameEdu01.cpp" />
     <ClCompile Include="DirectX 3D.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
