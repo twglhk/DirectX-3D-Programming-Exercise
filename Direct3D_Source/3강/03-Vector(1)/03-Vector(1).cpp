@@ -12,14 +12,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	D3DXVECTOR3 v4( 3.0f, 3.0f, 0.0f );
 	float fLength;
 
-	//// ∫§≈Õ¿« «’
-	//v3 = v1 + v2;
-	//printf( "«’ : %f %f %f \n",  v3.x, v3.y, v3.z );
+	// ∫§≈Õ¿« «’
+	/*v3 = v1 + v2;
+	printf( "«’ : %f %f %f \n",  v3.x, v3.y, v3.z );
 
-	//D3DXVec3Add( &v3, &v1, &v2 );
-	//printf( "«’ : %f %f %f \n",  v3.x, v3.y, v3.z );
+	D3DXVec3Add( &v3, &v1, &v2 );
+	printf( "«’ : %f %f %f \n",  v3.x, v3.y, v3.z );*/
 
-	//// ∫§≈Õ¿« ª¨º¿
+	// ∫§≈Õ¿« ª¨º¿
 	/*v3 = v1 - v2;
 
 	printf( "ª¨º¿ : %f %f %f \n",  v3.x, v3.y, v3.z );

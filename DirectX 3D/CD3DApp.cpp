@@ -30,6 +30,19 @@ HRESULT CD3DApp::InitD3D(HWND hWnd)
 		return E_FAIL;
 	}
 
+	if (FAILED(m_pd3dDevice->CreateVertexBuffer(3 * sizeof(CUSTOMVERTEX), 0, D3DFVF_CUSTOMVERTEX,
+		D3DPOOL_DEFAULT, &pVB, NULL)))
+		return E_FAIL;
+
+	if (FAILED(pVB->Lock(0, sizeof(vertices), (void**)&pVertices, 0)))
+		return E_FAIL;
+
+	memcpy(pVertices, vertices, sizeof(vertices));
+	pVB->Unlock();
+
+	m_pd3dDevice->SetStreamSource(0, pVB, 0, sizeof(CUSTOMVERTEX));
+	m_pd3dDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
+
 	// callback
 	OnInit();
 
@@ -66,6 +79,9 @@ void CD3DApp::Update()
 void CD3DApp::CleanUp()
 {
 	OnRelease();
+
+	if (pVB != NULL)
+		pVB->Release();
 
 	if (m_pd3dDevice != NULL)
 		m_pd3dDevice->Release();
