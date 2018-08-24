@@ -4,6 +4,7 @@
 
 CGameEdu01::CGameEdu01()
 {
+	triangle = new CTriangle();
 }
 
 
@@ -14,20 +15,20 @@ CGameEdu01::~CGameEdu01()
 
 void CGameEdu01::OnInit()
 {
-
+	triangle->OnInit(m_pd3dDevice);
 }
 
 void CGameEdu01::OnRender()
 {
-	m_pd3dDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+	triangle->OnRender();
 }
 
 void CGameEdu01::OnUpdate()
 {
-
+	// Changing of vertex position
 }
 
 void CGameEdu01::OnRelease()
 {
-
+	triangle->OnRelease();
 }

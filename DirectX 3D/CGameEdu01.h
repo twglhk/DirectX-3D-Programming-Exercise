@@ -1,8 +1,11 @@
 #pragma once
 #include "CD3DApp.h"
 
+
 class CGameEdu01 : public CD3DApp
 {
+	CTriangle* triangle;
+
 	virtual void OnInit();
 	virtual void OnRender();
 	virtual void OnUpdate();
