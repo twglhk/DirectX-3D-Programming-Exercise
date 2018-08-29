@@ -18,7 +18,7 @@ void CTriangle::OnInit(LPDIRECT3DDEVICE9 pd3dDevice)
 	// Vertex info
 	CUSTOMVERTEX vertices[3] =
 	{
-		{ 150.0f, 50.0f, 0.5f, 1.0f, 0xffff0000, },
+	{ 150.0f, 50.0f, 0.5f, 1.0f, 0xffff0000, },
 	{ 250.0f, 250.0f, 0.5f, 1.0f, 0xff00ff00, },
 	{ 50.0f, 250.0f, 0.5f, 1.0f, 0xff00ffff, },
 	};

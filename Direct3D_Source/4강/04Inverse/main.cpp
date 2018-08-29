@@ -2,50 +2,48 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 #include <d3dx9math.h>
+
+using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	D3DXMATRIX matMatrix, matResult;	
-	D3DXMatrixRotationX( &matMatrix, 0.3f );
+	D3DXMATRIX matMatrix, matResult;
+	D3DXMatrixRotationX(&matMatrix, 0.3f);
 
-	printf( "------------ 회전 행렬 --------------\n");
-	for( int i = 0 ; i < 4 ; i++ )
+	// Rotated Matrix
+	for (int i = 0; i < 4; i++)
 	{
-		for( int j = 0 ; j < 4 ; j++ )
-		{
-			printf( "%7.1f" , matMatrix(i, j)  );
-		}
-
-		printf( "\n" );
+		for (int j = 0; j < 4; j++)
+			cout << matMatrix.m[i][j] << " ";
+		
+		cout << endl;
 	}
 
-	printf( "------------Inverse------------------\n");
+	cout << "=======================" << endl;
 
-	D3DXMatrixInverse( &matResult, NULL, &matMatrix );	
-	
-	for( int i = 0 ; i < 4 ; i++ )
+	// Inverse
+	D3DXMatrixInverse(&matResult, NULL, &matMatrix);
+
+	// Inversed matrix
+	for (int i = 0; i < 4; i++)
 	{
-		for( int j = 0 ; j < 4 ; j++ )
-		{
-			printf( "%7.1f" , matResult(i, j)  );
-		}
-
-		printf( "\n" );
+		for (int j = 0; j < 4; j++)
+			cout << matResult.m[i][j] << " ";
+		
+		cout << endl;
 	}
 
-	printf( "--------------Inverse-----------------\n");
-
-	D3DXMatrixInverse( &matResult, NULL, &matResult );	
-	for( int i = 0 ; i < 4 ; i++ )
+	D3DXMatrixInverse(&matResult, NULL, &matResult);
+	// Inversed matrix
+	for (int i = 0; i < 4; i++)
 	{
-		for( int j = 0 ; j < 4 ; j++ )
-		{
-			printf( "%7.1f" , matResult(i, j) );
-		}
+		for (int j = 0; j < 4; j++)
+			cout << matResult.m[i][j] << " ";
 
-		printf( "\n" );
-	}	
+		cout << endl;
+	}
 
 	return 0;
 }

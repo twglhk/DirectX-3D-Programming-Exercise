@@ -4,7 +4,11 @@
 
 class CGameEdu01 : public CD3DApp
 {
-	CTriangle* triangle;
+	CTriangle triangle;
+	CAxis axis;
+
+	D3DXMATRIX m_matView, m_matProj; // matrix 
+	D3DXVECTOR3 m_Eye, m_At, m_Up; // View vectors
 
 	virtual void OnInit();
 	virtual void OnRender();

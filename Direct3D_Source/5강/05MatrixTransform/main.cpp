@@ -7,45 +7,54 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	D3DXMATRIX matMatrix;	
-	
-	//printf( "----------이동 행렬-------------------\n");
-	//D3DXMatrixTranslation( &matMatrix, 0.5f, 0.5f, 0.5f );		
-	//for( int i = 0 ; i < 4 ; i++ )
-	//{
-	//	for( int j = 0 ; j < 4 ; j++ )
-	//	{
-	//		printf( "%7.1f" , matMatrix(i, j) );
-	//	}
-
-	//	printf( "\n" );
-	//}
-
-	//printf( "-------------크기 행렬---------------------\n");
-	//D3DXMatrixScaling( &matMatrix, 0.5f, 0.5f, 0.5f );
-	//for( int i = 0 ; i < 4 ; i++ )
-	//{
-	//	for( int j = 0 ; j < 4 ; j++ )
-	//	{
-	//		printf( "%7.1f" , matMatrix(i, j) );
-	//	}
-
-	//	printf( "\n" );
-	//}
-	
-	/*printf( "------------- X 축 회전 행렬---------------\n");
-	D3DXMatrixRotationX( &matMatrix, D3DXToRadian( 30 ) );
-	for( int i = 0 ; i < 4 ; i++ )
+	for (int i = 0; i < 4; i++)
 	{
+		for (int j = 0; j < 4; j++)
+		{
+			printf("%7.1f", matMatrix(i, j));
+		}
+
+		printf("\n");
+	}
+	
+	printf( "----------이동 행렬-------------------\n");
+	D3DXMatrixTranslation(&matMatrix, 10.0f, 9.0f, 8.0f);
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			printf("%7.1f", matMatrix(i, j));
+		}
+
+		printf("\n");
+	}
+
+	printf( "-------------크기 행렬---------------------\n");
+	D3DXMatrixScaling(&matMatrix, 5.0f, 2.0f, 3.0f);
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			printf("%7.1f", matMatrix(i, j));
+		}
+
+		printf("\n");
+	}
+	
+	printf( "------------- X 축 회전 행렬---------------\n");
+	D3DXMatrixRotationX(&matMatrix, D3DXToRadian(90));
+	for( int i = 0 ; i < 4 ; i++ )
+	{ 
 		for( int j = 0 ; j < 4 ; j++ )
 		{
 			printf( "%7.1f" , matMatrix(i, j) );
 		}
 
 		printf( "\n" );
-	}*/
+	}
 
 	printf( "------------- Y 축 회전 행렬---------------\n");
-	D3DXMatrixRotationY( &matMatrix, D3DXToRadian( 30 ) );
+	D3DXMatrixRotationY(&matMatrix, D3DXToRadian(30));
 	for( int i = 0 ; i < 4 ; i++ )
 	{
 		for( int j = 0 ; j < 4 ; j++ )

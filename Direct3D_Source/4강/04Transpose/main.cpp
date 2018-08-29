@@ -2,40 +2,43 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 #include <d3dx9math.h>
+
+using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	D3DXMATRIX matMatrix, matResult;	
-	
-	for( int i = 0 ; i < 4 ; i++ )
-	{
-		for( int j = 0 ; j < 4 ; j++ )
-		{
-			matMatrix(i, j) = float( i*4 + j + 1);
-		}	
-	}	
-	
-	for( int i = 0 ; i < 4 ; i++ )
-	{
-		for( int j = 0 ; j < 4 ; j++ )
-		{
-			printf( "%7.1f" , matMatrix(i, j) );
-		}
+	D3DXMATRIX matTemp, matResult;
 
-		printf( "\n" );
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			matTemp(i, j) = float(4*i + j);
+		}
 	}
 
-	printf( "----------------------------------\n");
-	D3DXMatrixTranspose( &matResult, &matMatrix);
-	for( int i = 0 ; i < 4 ; i++ )
+	for (int i = 0; i < 4; i++)
 	{
-		for( int j = 0 ; j < 4 ; j++ )
+		for (int j = 0; j < 4; j++)
 		{
-			printf( "%7.1f" , matResult(i, j) );
+			cout << matTemp.m[i][j] << " ";
 		}
+		cout << endl;
+	}
 
-		printf( "\n" );
+	cout << "------------------------------" << endl;
+
+	D3DXMatrixTranspose(&matResult, &matTemp);
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			cout << matResult.m[i][j] << " ";
+		}
+		cout << endl;
 	}
 
 	return 0;
