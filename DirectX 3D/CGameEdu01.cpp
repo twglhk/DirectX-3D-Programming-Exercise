@@ -56,13 +56,14 @@ void CGameEdu01::OnInit()
 	// Object Setup
 	//triangle->OnInit(m_pd3dDevice);
 	axis.OnInit(m_pd3dDevice);
-	
+	cube.OnInit(m_pd3dDevice);
 }
 
 void CGameEdu01::OnRender()
 {
 	//triangle->OnRender();
 	axis.OnRender();
+	cube.OnRender();
 }
 
 void CGameEdu01::OnUpdate()
@@ -74,4 +75,5 @@ void CGameEdu01::OnRelease()
 {
 	//triangle->OnRelease();
 	axis.OnRelease();
+	cube.OnRelease();
 }

@@ -3,6 +3,7 @@
 #include <D3DX10math.h>
 #include "CTriangle.h"
 #include "CAxis.h"
+#include "CCube.h"
 
 class CD3DApp
 {

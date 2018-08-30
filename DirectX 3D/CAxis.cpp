@@ -45,7 +45,7 @@ void CAxis::OnInit(LPDIRECT3DDEVICE9 pd3dDevice)
 
 void CAxis::OnRender()
 {
-	D3DXMATRIX matWorld;
+		D3DXMATRIX matWorld;
 	D3DXMatrixIdentity(&matWorld); // Init, use same coordinate system with model coordinate
 
 	// Turn off the lighting
