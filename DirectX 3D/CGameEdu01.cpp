@@ -69,6 +69,16 @@ void CGameEdu01::OnInit()
 void CGameEdu01::OnRender()
 {
 	D3DXMATRIX matScale;
+	D3DXMATRIX matRot;
+	D3DXMATRIX matRotX_Scale;
+
+	D3DXVECTOR3 vecRotAxis = { 1.0f, 1.0f, 1.0f };
+	D3DXQUATERNION vQuart;
+	float x, y, z;
+
+	x = D3DXToRadian(45);
+	y = D3DXToRadian(90);
+	z = D3DXToRadian(45);
 
 	//triangle->OnRender();
 	
@@ -78,16 +88,31 @@ void CGameEdu01::OnRender()
 	m_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	
 	D3DXMatrixScaling(&matScale, m_fScale, m_fScale, m_fScale);
-	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matScale);
+	//D3DXMatrixRotationZ(&matRot, GetTickCount() * 0.004f);
+	//D3DXMatrixRotationAxis(&matRot, &vecRotAxis, GetTickCount() * 0.004f);
+	//D3DXQuaternionRotationAxis(&vQuart, &vecRotAxis, GetTickCount() * 0.004f);
+	//D3DXMatrixRotationQuaternion(&matRot, &vQuart);
+	
+	D3DXMatrixRotationYawPitchRoll(&matRot, y, x, z);
+
+	D3DXQuaternionRotationYawPitchRoll(&vQuart, y, x, z);
+	D3DXMatrixRotationQuaternion(&matRot, &vQuart);
+
+	matRotX_Scale = matScale * matRot;
+
+	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matRotX_Scale);
 	//m_pBoxMesh->DrawSubset(0);
-	m_pTeapotMesh->DrawSubset(0);
+	//m_pTeapotMesh->DrawSubset(0);
 	//m_pCylinderMesh->DrawSubset(0);
 	//m_pSphereMesh->DrawSubset(0);
+
+	
+	//m_pd3dDevice->SetTransform(D3DTS_WORLD, &matRotX);
+	m_pTeapotMesh->DrawSubset(0);
 
 	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
 	//cube.OnRender();
 
-	
 }
 
 void CGameEdu01::OnUpdate()
