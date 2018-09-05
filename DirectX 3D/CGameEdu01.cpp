@@ -56,24 +56,58 @@ void CGameEdu01::OnInit()
 	// Object Setup
 	//triangle->OnInit(m_pd3dDevice);
 	axis.OnInit(m_pd3dDevice);
-	cube.OnInit(m_pd3dDevice);
+	//cube.OnInit(m_pd3dDevice);
+
+	//D3DXCreateBox(m_pd3dDevice, 2.0f, 2.0f, 2.0f, &m_pBoxMesh, NULL); //box mesh setup
+	D3DXCreateTeapot(m_pd3dDevice, &m_pTeapotMesh, NULL);
+	//D3DXCreateSphere(m_pd3dDevice, 3.0f, 20, 20,  &m_pSphereMesh, NULL);
+	//D3DXCreateCylinder(m_pd3dDevice, 1.0f, 1.0f, 5.0f, 30, 30, &m_pCylinderMesh, NULL);
+
+	m_fScale = 1.0f;
 }
 
 void CGameEdu01::OnRender()
 {
+	D3DXMATRIX matScale;
+
 	//triangle->OnRender();
+	
 	axis.OnRender();
-	cube.OnRender();
+	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+	m_pd3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	m_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	
+	D3DXMatrixScaling(&matScale, m_fScale, m_fScale, m_fScale);
+	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matScale);
+	//m_pBoxMesh->DrawSubset(0);
+	m_pTeapotMesh->DrawSubset(0);
+	//m_pCylinderMesh->DrawSubset(0);
+	//m_pSphereMesh->DrawSubset(0);
+
+	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
+	//cube.OnRender();
+
+	
 }
 
 void CGameEdu01::OnUpdate()
 {
 	// Changing of vertex position
+	if (GetAsyncKeyState('A') < 0)
+	{
+		m_fScale -= 0.1f;
+	}
+		
+	if (GetAsyncKeyState('D') < 0)
+		m_fScale += 0.1f;
+
+	//std::cout << "OnUpdate" << std::endl;
 }
 
 void CGameEdu01::OnRelease()
 {
 	//triangle->OnRelease();
 	axis.OnRelease();
-	cube.OnRelease();
+	m_pTeapotMesh->Release();
+	//cube.OnRelease();
 }

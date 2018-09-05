@@ -42,6 +42,8 @@ HRESULT CD3DApp::InitD3D(HWND hWnd)
 
 	m_pd3dDevice->SetRenderState(D3DRS_ZENABLE, TRUE); // Device 내에서 zbuffer를 사용한다는 것을 설정해야함.
 
+	i = 0;
+
 	// callback
 	OnInit();
 
@@ -50,6 +52,7 @@ HRESULT CD3DApp::InitD3D(HWND hWnd)
 
 void CD3DApp::Render()
 {
+
 	if (NULL == m_pd3dDevice)
 		return;
 
@@ -59,8 +62,17 @@ void CD3DApp::Render()
 	// Begin the scene
 	if (SUCCEEDED(m_pd3dDevice->BeginScene()))
 	{
+		hdc = GetDC(m_hWnd);
+		if (GetAsyncKeyState('A') < 0)	
+			i++;
+		
 		// Rendering of scene objects can happen here
 		OnRender();
+		
+
+		sprintf_s(str, "%d", i);
+		TextOut(hdc, 10, 10, (LPCWSTR)str, strlen(str));
+		ReleaseDC(m_hWnd, hdc);
 
 		// End the scene
 		m_pd3dDevice->EndScene();
@@ -68,6 +80,8 @@ void CD3DApp::Render()
 
 	// Present the backbuffer contents to the display
 	m_pd3dDevice->Present(NULL, NULL, NULL, NULL);
+
+	//std::cout << "Render" << std::endl;
 }
 
 void CD3DApp::Update()

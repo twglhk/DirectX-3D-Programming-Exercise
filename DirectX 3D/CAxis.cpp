@@ -45,18 +45,18 @@ void CAxis::OnInit(LPDIRECT3DDEVICE9 pd3dDevice)
 
 void CAxis::OnRender()
 {
-		D3DXMATRIX matWorld;
+	D3DXMATRIX matWorld;
 	D3DXMatrixIdentity(&matWorld); // Init, use same coordinate system with model coordinate
-
-	// Turn off the lighting
-	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
-
-	// Device stream setting for rendering
-	m_pd3dDevice->SetStreamSource(0, pVB, 0, sizeof(AXISVERTEX));
-	m_pd3dDevice->SetFVF(D3DFVF_AXISVERTEX);
 
 	// World Transformation
 	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
+
+	// Turn off the lighting
+	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+	
+	// Device stream setting for rendering
+	m_pd3dDevice->SetStreamSource(0, pVB, 0, sizeof(AXISVERTEX));
+	m_pd3dDevice->SetFVF(D3DFVF_AXISVERTEX);
 
 	// Rendering
 	m_pd3dDevice->DrawPrimitive(D3DPT_LINELIST, 0, 3);

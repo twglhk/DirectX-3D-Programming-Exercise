@@ -1,6 +1,8 @@
 #pragma once
 #include <d3d9.h>
 #include <D3DX10math.h>
+#include <d3dx9shape.h>
+
 #include "CTriangle.h"
 #include "CAxis.h"
 #include "CCube.h"
@@ -19,6 +21,10 @@ protected:
 	virtual void OnUpdate() = 0;
 	virtual void OnRender() = 0;
 	virtual void OnRelease() = 0;
+
+	char str[10];
+	int i;
+	HDC hdc;
 
 public:
 	HRESULT InitD3D(HWND hWnd);
