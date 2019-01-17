@@ -24,25 +24,7 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DirectX 3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CD3DApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CGameEdu01.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CTriangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CAxis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CCube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CGround.h">
+    <ClInclude Include="01_DirectX_exercise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,30 +32,12 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DirectX 3D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CD3DApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CGameEdu01.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CTriangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CAxis.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CCube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CGround.cpp">
+    <ClCompile Include="01_DirectX_exercise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DirectX 3D.rc">
+    <ResourceCompile Include="01_DirectX_exercise.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -81,7 +45,7 @@
     <Image Include="small.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="DirectX 3D.ico">
+    <Image Include="01_DirectX_exercise.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

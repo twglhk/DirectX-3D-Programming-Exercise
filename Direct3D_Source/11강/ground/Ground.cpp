@@ -42,7 +42,7 @@ void CGround::Create( LPDIRECT3DDEVICE9 pd3dDevice, int nRow, int nCol, float fS
 			pGroundVertex[nIndex].vPos.x = vPos0.x + ( fSize * x );
 			pGroundVertex[nIndex].vPos.y = 0.0f;
 			pGroundVertex[nIndex].vPos.z = vPos0.z + -1.0f*( fSize * z );
-			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA( 255, 50, 255, 255);				
+			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA( 0, 0, 255, 255);				
 			nIndex++;
 		}
 	}	
@@ -97,7 +97,7 @@ void CGround::OnRender()
 	D3DXMatrixIdentity( &matWorld );
 
 	m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );
-	m_pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_WIREFRAME );	
+	m_pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_SOLID );	
 	
 	m_pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld);
 	m_pd3dDevice->SetStreamSource( 0, m_pVB, 0, sizeof( GROUNDVERTEX ) );

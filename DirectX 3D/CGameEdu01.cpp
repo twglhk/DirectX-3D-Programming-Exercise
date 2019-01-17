@@ -20,8 +20,8 @@ void CGameEdu01::OnInit()
 	D3DVIEWPORT9 vp;
 
 	// Init view trans param
-	m_Eye.x = 5.0f;
-	m_Eye.y = 8.0f;
+	m_Eye.x = 10.0f;
+	m_Eye.y = 15.0f;
 	m_Eye.z = -10.0f;
 
 	m_At.x = 0.0f;
@@ -70,9 +70,11 @@ void CGameEdu01::OnRender()
 {
 	D3DXMATRIX matScale;
 	D3DXMATRIX matRot;
-	D3DXMATRIX matRotX_Scale;
+	D3DXMATRIX matTrans;
+	D3DXMATRIX matConcat1;
+	D3DXMATRIX matConcat2;
 
-	D3DXVECTOR3 vecRotAxis = { 1.0f, 1.0f, 1.0f };
+	D3DXVECTOR3 vecRotAxis = { 0.0f, 1.0f, 0.0f };
 	D3DXQUATERNION vQuart;
 	float x, y, z;
 
@@ -87,20 +89,29 @@ void CGameEdu01::OnRender()
 	m_pd3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	
+
+	// Scale
 	D3DXMatrixScaling(&matScale, m_fScale, m_fScale, m_fScale);
-	//D3DXMatrixRotationZ(&matRot, GetTickCount() * 0.004f);
+	
+	
+	// Rotation
+
+	D3DXMatrixRotationY(&matRot, GetTickCount() * 0.004f);
 	//D3DXMatrixRotationAxis(&matRot, &vecRotAxis, GetTickCount() * 0.004f);
 	//D3DXQuaternionRotationAxis(&vQuart, &vecRotAxis, GetTickCount() * 0.004f);
 	//D3DXMatrixRotationQuaternion(&matRot, &vQuart);
-	
-	D3DXMatrixRotationYawPitchRoll(&matRot, y, x, z);
+	//D3DXMatrixRotationYawPitchRoll(&matRot, y, x, z);
+	//D3DXQuaternionRotationYawPitchRoll(&vQuart, y, x, z);
+	//D3DXMatrixRotationQuaternion(&matRot, &vQuart);
 
-	D3DXQuaternionRotationYawPitchRoll(&vQuart, y, x, z);
-	D3DXMatrixRotationQuaternion(&matRot, &vQuart);
+	// Translation
+	D3DXMatrixTranslation(&matTrans, 5.0f, 0.0f, 0.0f);
 
-	matRotX_Scale = matScale * matRot;
+	// Concatenation
+	//matConcat = matScale * matRot * matTrans;
+	matConcat1 = matScale * matTrans * matRot;
 
-	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matRotX_Scale);
+	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matConcat1);
 	//m_pBoxMesh->DrawSubset(0);
 	//m_pTeapotMesh->DrawSubset(0);
 	//m_pCylinderMesh->DrawSubset(0);
@@ -108,6 +119,13 @@ void CGameEdu01::OnRender()
 
 	
 	//m_pd3dDevice->SetTransform(D3DTS_WORLD, &matRotX);
+	m_pTeapotMesh->DrawSubset(0);
+
+
+	// Draw second Teapot
+	D3DXMatrixTranslation(&matTrans, 2.0f, 0.0f, 0.0f);
+	matConcat2 = matScale * matRot * matTrans;
+	m_pd3dDevice->SetTransform(D3DTS_WORLD, &matConcat2);
 	m_pTeapotMesh->DrawSubset(0);
 
 	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, TRUE);

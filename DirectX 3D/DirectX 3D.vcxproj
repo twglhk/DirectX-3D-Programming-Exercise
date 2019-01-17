@@ -154,6 +154,7 @@
     <ClInclude Include="CCube.h" />
     <ClInclude Include="CD3DApp.h" />
     <ClInclude Include="CGameEdu01.h" />
+    <ClInclude Include="CGround.h" />
     <ClInclude Include="CTriangle.h" />
     <ClInclude Include="DirectX 3D.h" />
     <ClInclude Include="Resource.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="CCube.cpp" />
     <ClCompile Include="CD3DApp.cpp" />
     <ClCompile Include="CGameEdu01.cpp" />
+    <ClCompile Include="CGround.cpp" />
     <ClCompile Include="CTriangle.cpp" />
     <ClCompile Include="DirectX 3D.cpp" />
     <ClCompile Include="stdafx.cpp">
